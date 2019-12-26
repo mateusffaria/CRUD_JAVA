@@ -1,2 +1,8 @@
 # CRUD_JAVA
-Basic CRUD in JAVA for student control
+Thing you may want to cover for get the application up and running:
+
+# PostGres SQL
+# Create database
+# JDK 7
+# NetBeans IDE
+# ...
