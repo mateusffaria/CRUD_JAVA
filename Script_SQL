@@ -1,0 +1,21 @@
+-- Table: public."TB_ALUNOS"
+
+-- DROP TABLE public."TB_ALUNOS";
+
+CREATE TABLE public."TB_ALUNOS"
+(
+    "DS_RA" character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    "DS_CURSO" character varying(20) COLLATE pg_catalog."default",
+    "DS_NOME" character varying(100) COLLATE pg_catalog."default",
+    "DS_ENDERECO" character varying(200) COLLATE pg_catalog."default",
+    "DS_TELEFONE" character varying COLLATE pg_catalog."default",
+    "DS_SEXO" character varying(20) COLLATE pg_catalog."default",
+    CONSTRAINT "TB_ALUNOS_pkey" PRIMARY KEY ("DS_RA")
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public."TB_ALUNOS"
+    OWNER to postgres;
