@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class DAO_Aluno extends Conexao{
@@ -20,7 +18,7 @@ public class DAO_Aluno extends Conexao{
         listarAlunos();
     } 
     
-    private ArrayList<Aluno> alunos = new ArrayList();
+    private final ArrayList<Aluno> alunos = new ArrayList();
     
     public void cadastarAluno(Aluno aluno){
         conexao();
@@ -45,6 +43,7 @@ public class DAO_Aluno extends Conexao{
             pst.close();
             con.close();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na operação de salvamento");
         }        
     }
     
@@ -70,7 +69,7 @@ public class DAO_Aluno extends Conexao{
             pst.close();
             
         } catch (SQLException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Falha ao recuperar dados do banco de dados");
         }
         
     }    
@@ -92,6 +91,7 @@ public class DAO_Aluno extends Conexao{
                     alunos.remove(i);
                     System.out.println("Exclusão efetuada com sucesso!");                    
                 } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Falha na operação de exclusão");
                 }
             }
         }
@@ -117,25 +117,10 @@ public class DAO_Aluno extends Conexao{
             pst.close();
             
         } catch (SQLException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Falha ao alterar aluno");
         }        
     }
-        
-    public void pesquisarAlunoRA(String receber){
-
-    }    
-        
-    public void mostarteste(){
-        for (Aluno a : alunos){
-            System.out.println(a.getEndereco());
-            System.out.println(a.getNome());
-            System.out.println(a.getRA());
-            System.out.println(a.getCurso());
-            System.out.println(a.getSexo());
-            System.out.println(a.getTelefone());
-        }
-    }
-
+    
     public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
